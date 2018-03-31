@@ -13,7 +13,7 @@ import xyz.poketech.diy.ai.EntityAIEjectDye;
 @Mod(modid = DyeItYourself.MODID, name = DyeItYourself.NAME, version = DyeItYourself.VERSION, acceptedMinecraftVersions = DyeItYourself.VERSION_RANGE)
 public class DyeItYourself {
     public static final String MODID = "diy";
-    public static final String NAME = "DIY - Dye it yourself";
+    public static final String NAME = "Dye it yourself";
     public static final String VERSION = "1.0";
     public static final String VERSION_RANGE = "[1.12,1.13)";
 
@@ -26,9 +26,14 @@ public class DyeItYourself {
     public static void onEntitySpawn(LivingSpawnEvent.EnteringChunk event) {
         if (event.getEntity() instanceof EntitySheep) {
             EntitySheep sheep = ((EntitySheep) event.getEntity());
-            sheep.tasks.addTask(5, new EntityAIEatFlower(sheep));
-            sheep.tasks.addTask(6, new EntityAIEjectDye(sheep));
 
+            if(ConfigHandler.general.sheepEatFlowers) {
+                sheep.tasks.addTask(5, new EntityAIEatFlower(sheep));
+            }
+
+            if(ConfigHandler.general.sheepPoopDye) {
+                sheep.tasks.addTask(6, new EntityAIEjectDye(sheep));
+            }
         }
     }
 }

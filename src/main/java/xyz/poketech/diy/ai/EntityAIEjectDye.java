@@ -9,6 +9,7 @@ import net.minecraft.item.EnumDyeColor;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import xyz.poketech.diy.ConfigHandler;
 import xyz.poketech.diy.util.WorldUtil;
 
 public class EntityAIEjectDye extends EntityAIBase {
@@ -80,14 +81,10 @@ public class EntityAIEjectDye extends EntityAIBase {
         if (this.ejectDyeTimer == 4) {
             BlockPos blockpos = getBlockPos();
 
-            if (this.dyeEjecterEntity instanceof EntitySquid) {
-                WorldUtil.spawnStack(entityWorld, blockpos, new ItemStack(Items.DYE, 1, EnumDyeColor.BLACK.getMetadata()));
-            }
-
-
             if (this.dyeEjecterEntity instanceof EntitySheep) {
                 EntitySheep sheep = (EntitySheep) this.dyeEjecterEntity;
-                WorldUtil.spawnStack(entityWorld, blockpos, new ItemStack(Items.DYE, 1, sheep.getFleeceColor().getDyeDamage()));
+                int count = sheep.getRNG().nextInt(ConfigHandler.general.maxDyePoop) + ConfigHandler.general.minDyePoop;
+                WorldUtil.spawnStack(entityWorld, blockpos, new ItemStack(Items.DYE, count, sheep.getFleeceColor().getDyeDamage()));
             }
         }
     }

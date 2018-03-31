@@ -6,6 +6,7 @@ import net.minecraft.entity.passive.EntitySheep;
 import net.minecraft.item.EnumDyeColor;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import xyz.poketech.diy.ConfigHandler;
 import xyz.poketech.diy.util.DyeUtil;
 import xyz.poketech.diy.util.WorldUtil;
 
@@ -88,11 +89,10 @@ public class EntityAIEatFlower extends EntityAIBase {
 
                 this.flowerEaterEntity.eatGrassBonus();
 
-                if (this.flowerEaterEntity instanceof EntitySheep) {
+                if (this.flowerEaterEntity instanceof EntitySheep && ConfigHandler.general.sheepAbsorbColor) {
                     EntitySheep sheep = (EntitySheep) this.flowerEaterEntity;
                     sheep.setFleeceColor(color);
                 }
-
             }
         }
     }
