@@ -4,6 +4,7 @@ import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.ai.EntityAIBase;
 import net.minecraft.entity.passive.EntitySheep;
 import net.minecraft.init.Items;
+import net.minecraft.init.SoundEvents;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
@@ -46,7 +47,7 @@ public class EntityAIEjectDye extends EntityAIBase {
      * Execute a one shot task or start executing a continuous task
      */
     public void startExecuting() {
-        this.ejectDyeTimer = this.dyeEjecterEntity.getRNG().nextInt(6000) + 3000;
+        this.ejectDyeTimer = this.dyeEjecterEntity.getRNG().nextInt(4000) + 3000;
         this.dyeEjecterEntity.getNavigator().clearPath();
     }
 
@@ -85,6 +86,8 @@ public class EntityAIEjectDye extends EntityAIBase {
                     EntitySheep sheep = (EntitySheep) this.dyeEjecterEntity;
                     int count = Math.max(0, sheep.getRNG().nextInt(ConfigHandler.general.maxDyePoop - ConfigHandler.general.minDyePoop) + ConfigHandler.general.minDyePoop);
                     WorldUtil.spawnStack(entityWorld, blockpos, new ItemStack(Items.DYE, count, sheep.getFleeceColor().getDyeDamage()));
+                    float pitch = (this.dyeEjecterEntity.getRNG().nextFloat() - this.dyeEjecterEntity.getRNG().nextFloat()) * 0.2F + 1.0F;
+                    this.dyeEjecterEntity.playSound(SoundEvents.ENTITY_CHICKEN_EGG, 1.0F, pitch);
                 }
             }
         }
