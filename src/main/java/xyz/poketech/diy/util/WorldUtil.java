@@ -46,11 +46,11 @@ public class WorldUtil {
 
 
     public static void spawnStack(World world, BlockPos pos, ItemStack stack) {
-        world.spawnEntity(new EntityItem(world, pos.getX(), pos.getY(), pos.getZ() , stack));
+        world.spawnEntity(new EntityItem(world, pos.getX(), pos.getY(), pos.getZ(), stack));
     }
 
     public static void spawnItem(World world, BlockPos pos, Item item, int meta) {
         //TODO: change the ammount in the config (or let it be random)
-        world.spawnEntity(new EntityItem(world, pos.getX(), pos.getY(), pos.getZ() , new ItemStack(item, 1, meta)));
+        world.spawnEntity(new EntityItem(world, pos.getX(), pos.getY(), pos.getZ(), new ItemStack(item, 1, meta)));
     }
 }

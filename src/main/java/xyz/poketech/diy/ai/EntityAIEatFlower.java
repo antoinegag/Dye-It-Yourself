@@ -81,8 +81,7 @@ public class EntityAIEatFlower extends EntityAIBase {
 
             if (WorldUtil.isEntityOnFlower(this.flowerEaterEntity)) {
 
-                EnumDyeColor color = DyeUtil.getDyeFromFlowerAt(this.entityWorld, blockpos);
-                //EnumDyeColor color = getDyeFromFlower(blockpos);
+                EnumDyeColor color = DyeUtil.getDyeForFlowerAt(this.entityWorld, blockpos);
                 if (this.entityWorld.getGameRules().getBoolean("mobGriefing")) {
                     this.entityWorld.destroyBlock(blockpos, false);
                 }

@@ -10,13 +10,13 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 @Mod.EventBusSubscriber(modid = DyeItYourself.MODID)
 public class ConfigHandler {
 
-    @Config.Comment({ "General settings" })
+    @Config.Comment({"General settings"})
     @Config.LangKey("config.diy.general")
     public static ConfigGeneral general = new ConfigGeneral();
 
     @SubscribeEvent
     public static void onConfigChanged(ConfigChangedEvent.OnConfigChangedEvent event) {
-        if(event.getModID().equals(DyeItYourself.MODID)) {
+        if (event.getModID().equals(DyeItYourself.MODID)) {
             ConfigManager.sync(event.getModID(), Config.Type.INSTANCE);
         }
     }

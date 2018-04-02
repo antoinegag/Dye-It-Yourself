@@ -27,11 +27,11 @@ public class DyeItYourself {
         if (event.getEntity() instanceof EntitySheep) {
             EntitySheep sheep = ((EntitySheep) event.getEntity());
 
-            if(ConfigHandler.general.sheepEatFlowers) {
+            if (ConfigHandler.general.sheepEatFlowers) {
                 sheep.tasks.addTask(5, new EntityAIEatFlower(sheep));
             }
 
-            if(ConfigHandler.general.sheepPoopDye) {
+            if (ConfigHandler.general.sheepPoopDye) {
                 sheep.tasks.addTask(6, new EntityAIEjectDye(sheep));
             }
         }

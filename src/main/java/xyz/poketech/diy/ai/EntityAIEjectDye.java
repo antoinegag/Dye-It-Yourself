@@ -3,13 +3,12 @@ package xyz.poketech.diy.ai;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.ai.EntityAIBase;
 import net.minecraft.entity.passive.EntitySheep;
-import net.minecraft.entity.passive.EntitySquid;
 import net.minecraft.init.Items;
-import net.minecraft.item.EnumDyeColor;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import xyz.poketech.diy.ConfigHandler;
+import xyz.poketech.diy.DyeItYourself;
 import xyz.poketech.diy.util.WorldUtil;
 
 public class EntityAIEjectDye extends EntityAIBase {
@@ -47,7 +46,7 @@ public class EntityAIEjectDye extends EntityAIBase {
      * Execute a one shot task or start executing a continuous task
      */
     public void startExecuting() {
-        this.ejectDyeTimer = 20;
+        this.ejectDyeTimer = this.dyeEjecterEntity.getRNG().nextInt(6000) + 3000;
         this.dyeEjecterEntity.getNavigator().clearPath();
     }
 
@@ -76,15 +75,17 @@ public class EntityAIEjectDye extends EntityAIBase {
      * Keep ticking a continuous task that has already been started
      */
     public void updateTask() {
-        this.ejectDyeTimer = Math.max(0, this.ejectDyeTimer - 1);
+        if(ConfigHandler.general.sheepPoopDye) {
+            this.ejectDyeTimer = Math.max(0, this.ejectDyeTimer - 1);
 
-        if (this.ejectDyeTimer == 4) {
-            BlockPos blockpos = getBlockPos();
+            if (this.ejectDyeTimer == 4) {
+                BlockPos blockpos = getBlockPos();
 
-            if (this.dyeEjecterEntity instanceof EntitySheep) {
-                EntitySheep sheep = (EntitySheep) this.dyeEjecterEntity;
-                int count = sheep.getRNG().nextInt(ConfigHandler.general.maxDyePoop) + ConfigHandler.general.minDyePoop;
-                WorldUtil.spawnStack(entityWorld, blockpos, new ItemStack(Items.DYE, count, sheep.getFleeceColor().getDyeDamage()));
+                if (this.dyeEjecterEntity instanceof EntitySheep) {
+                    EntitySheep sheep = (EntitySheep) this.dyeEjecterEntity;
+                    int count = sheep.getRNG().nextInt(ConfigHandler.general.maxDyePoop) + ConfigHandler.general.minDyePoop;
+                    WorldUtil.spawnStack(entityWorld, blockpos, new ItemStack(Items.DYE, count, sheep.getFleeceColor().getDyeDamage()));
+                }
             }
         }
     }
