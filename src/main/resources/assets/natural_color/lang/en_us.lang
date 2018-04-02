@@ -1,0 +1,5 @@
+config.diy.sheep_eat_flowers = Sheeps should eat flowers
+config.diy.sheep_absorb = Sheeps should take the color of the flower they eat
+config.diy.sheep_poop_dye = Sheeps should poop dye
+config.diy.max_dye_poop = Maximum of dye sheeps should poop at the time
+config.diy.min_dye_poop = Minimum of dye sheeps should poop at the time

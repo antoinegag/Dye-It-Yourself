@@ -32,6 +32,7 @@ public class DyeItYourself {
             }
 
             if (ConfigHandler.general.sheepPoopDye) {
+                //TODO: change that, shouldn't be using an AI task for that...
                 sheep.tasks.addTask(6, new EntityAIEjectDye(sheep));
             }
         }

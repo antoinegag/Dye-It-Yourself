@@ -22,24 +22,24 @@ public class ConfigHandler {
     }
 
     public static class ConfigGeneral {
-        @Config.Comment({"Enable the sheeps to eat flowers like grass"})
+        @Config.Comment({"Sheeps should eat flowers"})
         @Config.LangKey("config.diy.sheep_eat_flowers")
         public boolean sheepEatFlowers = true;
 
-        @Config.Comment({"Makes the sheep change to the color of the flower they eat"})
+        @Config.Comment({"Sheeps should take the color of the flower they eat"})
         @Config.LangKey("config.diy.sheep_absorb")
         public boolean sheepAbsorbColor = true;
 
-        @Config.Comment({"Makes the sheep poop dye based on its wool color"})
+        @Config.Comment({"Sheeps should poop dye"})
         @Config.LangKey("config.diy.sheep_poop_dye")
         public boolean sheepPoopDye = true;
 
-        @Config.Comment({"Maximum number of dye that sheep should poop"})
+        @Config.Comment({"Maximum of dye sheeps should poop at the time"})
         @Config.LangKey("config.diy.max_dye_poop")
         @Config.RangeInt(min = 0)
         public int maxDyePoop = 2;
 
-        @Config.Comment({"Minimum number of dye that sheep should poop"})
+        @Config.Comment({"Minimum of dye sheeps should poop at the time"})
         @Config.LangKey("config.diy.min_dye_poop")
         @Config.RangeInt(min = 0)
         public int minDyePoop = 1;
