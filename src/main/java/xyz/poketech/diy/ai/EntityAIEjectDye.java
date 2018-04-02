@@ -83,7 +83,7 @@ public class EntityAIEjectDye extends EntityAIBase {
 
                 if (this.dyeEjecterEntity instanceof EntitySheep) {
                     EntitySheep sheep = (EntitySheep) this.dyeEjecterEntity;
-                    int count = sheep.getRNG().nextInt(ConfigHandler.general.maxDyePoop) + ConfigHandler.general.minDyePoop;
+                    int count = Math.max(0, sheep.getRNG().nextInt(ConfigHandler.general.maxDyePoop - ConfigHandler.general.minDyePoop) + ConfigHandler.general.minDyePoop);
                     WorldUtil.spawnStack(entityWorld, blockpos, new ItemStack(Items.DYE, count, sheep.getFleeceColor().getDyeDamage()));
                 }
             }
