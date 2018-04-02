@@ -21,8 +21,9 @@ public class DyeUtil {
 
         //Grab the flower as an ItemStack
         ItemStack stack = WorldUtil.getItemStackForBlockAt(world, pos);
-
-        return cache.computeIfAbsent(stack.getMetadata(), k -> EnumDyeColor.byDyeDamage(getFlowerDye(stack, world).getMetadata()));
+        ItemStack dye = getFlowerDye(stack, world);
+        int meta = dye.getMetadata();
+        return cache.computeIfAbsent(stack.getMetadata(), k -> EnumDyeColor.byDyeDamage(meta));
     }
 
     public static ItemStack getFlowerDye(ItemStack stack, World world) {
