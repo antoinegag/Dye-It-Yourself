@@ -21,20 +21,4 @@ public class DyeItYourself {
     public static DyeItYourself instance;
 
     public static final Logger LOGGER = LogManager.getLogger(MODID);
-
-    @SubscribeEvent
-    public static void onEntitySpawn(LivingSpawnEvent.EnteringChunk event) {
-        if (event.getEntity() instanceof EntitySheep) {
-            EntitySheep sheep = ((EntitySheep) event.getEntity());
-
-            if (ConfigHandler.general.sheepEatFlowers) {
-                sheep.tasks.addTask(5, new EntityAIEatFlower(sheep));
-            }
-
-            if (ConfigHandler.general.sheepPoopDye) {
-                //TODO: change that, shouldn't be using an AI task for that...
-                sheep.tasks.addTask(6, new EntityAIEjectDye(sheep));
-            }
-        }
-    }
 }
