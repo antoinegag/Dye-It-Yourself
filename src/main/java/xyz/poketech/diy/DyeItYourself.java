@@ -2,8 +2,13 @@ package xyz.poketech.diy;
 
 import net.minecraft.launchwrapper.Launch;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.common.SidedProxy;
+import net.minecraftforge.fml.common.event.FMLInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import xyz.poketech.diy.proxy.CommonProxy;
 
 @Mod.EventBusSubscriber
 @Mod(modid = DyeItYourself.MODID, name = DyeItYourself.NAME, version = DyeItYourself.VERSION, acceptedMinecraftVersions = DyeItYourself.VERSION_RANGE)
@@ -18,4 +23,22 @@ public class DyeItYourself {
     public static DyeItYourself instance;
 
     public static final Logger LOGGER = LogManager.getLogger(MODID);
+
+    @SidedProxy(clientSide = "xyz.poketech.diy.proxy.ClientProxy", serverSide = "xyz.poketech.diy.proxy.CommonProxy")
+    public static CommonProxy proxy;
+
+    @Mod.EventHandler
+    public void preInit(FMLPreInitializationEvent e){
+        //proxy.preInit(e);
+    }
+
+    @Mod.EventHandler
+    public void init(FMLInitializationEvent e) {
+        //proxy.init(e);
+    }
+
+    @Mod.EventHandler
+    public void postInit(FMLPostInitializationEvent e) {
+        //proxy.postInit(e);
+    }
 }
