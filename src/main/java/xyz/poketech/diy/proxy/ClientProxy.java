@@ -15,6 +15,7 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import xyz.poketech.diy.DyeItYourself;
 import xyz.poketech.diy.client.render.layer.LayerSheepWoolOverride;
+import xyz.poketech.diy.network.PacketHandler;
 import xyz.poketech.diy.network.PacketUpdateColor;
 
 @SideOnly(Side.CLIENT)
@@ -23,12 +24,13 @@ public class ClientProxy extends CommonProxy {
     @Override
     public void preInit(FMLPreInitializationEvent e) {
         super.preInit(e);
+
+        PacketHandler.registerClientMessages();
     }
 
     @Override
     public void init(FMLInitializationEvent e) {
         super.init(e);
-        DyeItYourself.NETWORK.registerMessage(PacketUpdateColor.ColorPacketHandler.class, PacketUpdateColor.class, 0, Side.CLIENT);
 
         Render<Entity> renderer = Minecraft.getMinecraft().getRenderManager().getEntityClassRenderObject(EntitySheep.class);
         if (renderer instanceof RenderLivingBase) {

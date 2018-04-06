@@ -16,13 +16,15 @@ public class PacketUpdateColor implements IMessage {
     private int entityId;
     private int color;
 
-    public PacketUpdateColor()
-    {
+    public PacketUpdateColor() {
     }
 
-    public PacketUpdateColor(Entity entityIn, int color)
-    {
-        this.entityId = entityIn.getEntityId();
+    public PacketUpdateColor(Entity entityIn, int color) {
+        this(entityIn.getEntityId(), color);
+    }
+
+    public PacketUpdateColor(int entityId, int color) {
+        this.entityId = entityId;
         this.color = color;
     }
 
@@ -40,14 +42,12 @@ public class PacketUpdateColor implements IMessage {
 
 
     @SideOnly(Side.CLIENT)
-    public Entity getEntity(World worldIn)
-    {
+    public Entity getEntity(World worldIn) {
         return worldIn.getEntityByID(this.entityId);
     }
 
     @SideOnly(Side.CLIENT)
-    public int getColor()
-    {
+    public int getColor() {
         return this.color;
     }
 

@@ -29,18 +29,17 @@ public class LayerSheepWoolOverride implements LayerRenderer<EntitySheep> {
             //Only render if a color is set
             if (entitylivingbaseIn.getEntityData().hasKey(NBTColorUtil.COLOR_KEY)) {
 
-                boolean isJeb = entitylivingbaseIn.hasCustomName() && "jeb_".equals(entitylivingbaseIn.getCustomNameTag());
+                boolean isJeb = (entitylivingbaseIn.hasCustomName() && "jeb_".equals(entitylivingbaseIn.getCustomNameTag()));
 
-                //Don't render for jeb_ sheeps
+                //Don't render for jeb_ sheep
                 if (!isJeb) {
                     this.sheepRenderer.bindTexture(TEXTURE);
                     //float[] afloat = EntitySheep.getDyeRgb(entitylivingbaseIn.getFleeceColor());
                     ColorUtil.setGLColorFromInt(entitylivingbaseIn.getEntityData().getInteger(NBTColorUtil.COLOR_KEY));
+                    this.sheepModel.setModelAttributes(this.sheepRenderer.getMainModel());
+                    this.sheepModel.setLivingAnimations(entitylivingbaseIn, limbSwing, limbSwingAmount, partialTicks);
+                    this.sheepModel.render(entitylivingbaseIn, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
                 }
-
-                this.sheepModel.setModelAttributes(this.sheepRenderer.getMainModel());
-                this.sheepModel.setLivingAnimations(entitylivingbaseIn, limbSwing, limbSwingAmount, partialTicks);
-                this.sheepModel.render(entitylivingbaseIn, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
             }
         }
     }

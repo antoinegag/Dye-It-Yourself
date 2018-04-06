@@ -8,6 +8,8 @@ import net.minecraft.init.SoundEvents;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.World;
+import net.minecraftforge.event.entity.EntityJoinWorldEvent;
 import net.minecraftforge.event.entity.living.LivingEvent;
 import net.minecraftforge.event.entity.living.LivingSpawnEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
@@ -19,6 +21,7 @@ import org.apache.commons.lang3.RandomUtils;
 import xyz.poketech.diy.ConfigHandler;
 import xyz.poketech.diy.DyeItYourself;
 import xyz.poketech.diy.ai.EntityAIEatFlower;
+import xyz.poketech.diy.network.PacketRequestColor;
 import xyz.poketech.diy.network.PacketUpdateColor;
 import xyz.poketech.diy.util.color.ColorUtil;
 import xyz.poketech.diy.util.RandomUtil;
@@ -37,6 +40,16 @@ public class LivingHandler {
 
             if (ConfigHandler.general.sheepEatFlowers) {
                 sheep.tasks.addTask(5, new EntityAIEatFlower(sheep));
+            }
+        }
+    }
+
+    @SubscribeEvent
+    public static void onEntityEnterWorld(EntityJoinWorldEvent event) {
+        //Sync the sheep color on the client
+        if(event.getWorld().isRemote) {
+            if(event.getEntity() instanceof EntitySheep) {
+                DyeItYourself.NETWORK.sendToServer(new PacketRequestColor(event.getEntity().getEntityId()));
             }
         }
     }
@@ -80,7 +93,7 @@ public class LivingHandler {
                 int r = RandomUtils.nextInt(0, 256);
                 int g = RandomUtils.nextInt(0, 256);
                 int b = RandomUtils.nextInt(0, 256);
-                //target.getEntityData().setInteger("diy_color", ColorUtil.getRGB(r,g,b));
+                target.getEntityData().setInteger("diy_color", ColorUtil.getRGB(r,g,b));
                 BlockPos pos = event.getPos();
                 DyeItYourself.NETWORK.sendToAllAround(
                     new PacketUpdateColor(target, ColorUtil.getRGB(r,g,b)),
