@@ -7,6 +7,9 @@ import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.relauncher.Side;
+import xyz.poketech.diy.network.DIYPacketHandler;
+import xyz.poketech.diy.network.PacketUpdateColor;
 
 public class CommonProxy {
 
@@ -15,7 +18,6 @@ public class CommonProxy {
     }
 
     public void init(FMLInitializationEvent e) {
-
     }
 
     public void postInit(FMLPostInitializationEvent e) {

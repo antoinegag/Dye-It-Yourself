@@ -1,18 +1,26 @@
 package xyz.poketech.diy.handler;
 
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.passive.EntitySheep;
 import net.minecraft.init.Items;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.util.math.BlockPos;
 import net.minecraftforge.event.entity.living.LivingEvent;
 import net.minecraftforge.event.entity.living.LivingSpawnEvent;
+import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.common.network.NetworkRegistry;
+import net.minecraftforge.fml.relauncher.Side;
+import org.apache.commons.lang3.RandomUtils;
 import xyz.poketech.diy.ConfigHandler;
 import xyz.poketech.diy.DyeItYourself;
 import xyz.poketech.diy.ai.EntityAIEatFlower;
+import xyz.poketech.diy.network.PacketUpdateColor;
+import xyz.poketech.diy.util.ColorUtil;
 import xyz.poketech.diy.util.RandomUtil;
 import xyz.poketech.diy.util.WorldUtil;
 
@@ -35,7 +43,6 @@ public class LivingHandler {
 
     @SubscribeEvent
     public static void onLivingUpdate(LivingEvent.LivingUpdateEvent event) {
-
         EntityLivingBase entity = event.getEntityLiving();
         if (!entity.world.isRemote && ConfigHandler.dyePooping.sheepPoopDye && entity instanceof EntitySheep) {
 
@@ -60,6 +67,25 @@ public class LivingHandler {
                 }
             } else {
                 data.setInteger(NEXT_DYE_KEY, RandomUtil.getNextDye());
+            }
+        }
+    }
+
+    //Just for testing stuff
+    @SubscribeEvent
+    public static void onLivingRightClick(PlayerInteractEvent.EntityInteract event) {
+        if(event.getSide() == Side.SERVER) {
+            Entity target = event.getTarget();
+            if(target instanceof EntitySheep) {
+                int r = RandomUtils.nextInt(0, 256);
+                int g = RandomUtils.nextInt(0, 256);
+                int b = RandomUtils.nextInt(0, 256);
+                //target.getEntityData().setInteger("diy_color", ColorUtil.getRGB(r,g,b));
+                BlockPos pos = event.getPos();
+                DyeItYourself.NETWORK.sendToAllAround(
+                    new PacketUpdateColor(target, ColorUtil.getRGB(r,g,b)),
+                    new NetworkRegistry.TargetPoint( event.getEntityPlayer().dimension, pos.getX(), pos.getY(), pos.getZ(), 25)
+                );
             }
         }
     }
