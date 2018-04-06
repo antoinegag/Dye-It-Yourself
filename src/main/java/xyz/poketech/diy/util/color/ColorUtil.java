@@ -1,4 +1,4 @@
-package xyz.poketech.diy.util;
+package xyz.poketech.diy.util.color;
 
 import java.awt.Color;
 

@@ -9,6 +9,7 @@ import net.minecraftforge.fml.common.network.simpleimpl.IMessageHandler;
 import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import xyz.poketech.diy.util.color.NBTColorUtil;
 
 public class PacketUpdateColor implements IMessage {
 
@@ -52,8 +53,6 @@ public class PacketUpdateColor implements IMessage {
 
     public static class ColorPacketHandler implements IMessageHandler<PacketUpdateColor, IMessage> {
 
-        public static final String COLOR_KEY = "diy_color";
-
         @Override
         public IMessage onMessage(PacketUpdateColor message, MessageContext ctx) {
 
@@ -62,7 +61,7 @@ public class PacketUpdateColor implements IMessage {
             Minecraft.getMinecraft().addScheduledTask(() -> {
                 Entity entity = world.getEntityByID(message.entityId);
                 int color = message.color;
-                entity.getEntityData().setInteger(COLOR_KEY, color);
+                entity.getEntityData().setInteger(NBTColorUtil.COLOR_KEY, color);
             });
 
             return null;

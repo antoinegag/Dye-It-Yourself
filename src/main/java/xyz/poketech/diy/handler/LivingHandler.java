@@ -20,7 +20,7 @@ import xyz.poketech.diy.ConfigHandler;
 import xyz.poketech.diy.DyeItYourself;
 import xyz.poketech.diy.ai.EntityAIEatFlower;
 import xyz.poketech.diy.network.PacketUpdateColor;
-import xyz.poketech.diy.util.ColorUtil;
+import xyz.poketech.diy.util.color.ColorUtil;
 import xyz.poketech.diy.util.RandomUtil;
 import xyz.poketech.diy.util.WorldUtil;
 
