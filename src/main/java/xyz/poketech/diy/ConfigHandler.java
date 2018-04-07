@@ -33,7 +33,7 @@ public class ConfigHandler {
 
         @Config.Comment({"Max time until next dye"})
         @Config.LangKey("config.diy.sheep_poop_time_higher")
-        public int rngUpperBoundTime = 1200;
+        public int rngUpperBoundTime = 12000;
 
         @Config.Comment({"Min time until next dye"})
         @Config.LangKey("config.diy.sheep_poop_time_lower")
