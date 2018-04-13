@@ -68,12 +68,14 @@ public class LivingHandler {
                 int nextDye = data.getInteger(NEXT_DYE_KEY);
                 if (nextDye == 1) {
                     //Spawn a random amount of dye
-                    int count = RandomUtil.getDyePoopedAmount();
-                    WorldUtil.spawnStack(sheep.world, sheep.getPosition(), new ItemStack(Items.DYE, count, sheep.getFleeceColor().getDyeDamage()));
+                    int count = RandomUtil.getDyePoopedAmountSafe();
+                    if(count != 0) {
+                        WorldUtil.spawnStack(sheep.world, sheep.getPosition(), new ItemStack(Items.DYE, count, sheep.getFleeceColor().getDyeDamage()));
 
-                    //Play the chicken egg sound
-                    float pitch = (sheep.getRNG().nextFloat() - sheep.getRNG().nextFloat()) * 0.2F + 1.0F;
-                    sheep.playSound(SoundEvents.ENTITY_CHICKEN_EGG, 1.0F, pitch);
+                        //Play the chicken egg sound
+                        float pitch = (sheep.getRNG().nextFloat() - sheep.getRNG().nextFloat()) * 0.2F + 1.0F;
+                        sheep.playSound(SoundEvents.ENTITY_CHICKEN_EGG, 1.0F, pitch);
+                    }
 
                     //Set new dye
                     data.setInteger(NEXT_DYE_KEY, RandomUtil.getNextDye());
