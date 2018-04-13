@@ -1,13 +1,8 @@
 package xyz.poketech.diy.client.render.layer;
 
 import net.minecraft.client.model.ModelSheep1;
-import net.minecraft.client.renderer.BufferBuilder;
-import net.minecraft.client.renderer.GlStateManager;
-import net.minecraft.client.renderer.RenderHelper;
-import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.entity.RenderSheep;
 import net.minecraft.client.renderer.entity.layers.LayerRenderer;
-import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
 import net.minecraft.entity.passive.EntitySheep;
 import net.minecraft.util.ResourceLocation;
 import xyz.poketech.diy.util.color.NBTColorUtil;
@@ -41,7 +36,7 @@ public class LayerSheepWoolOverride implements LayerRenderer<EntitySheep> {
 
                 if(entitylivingbaseIn.hasCustomName()) {
                     if("jeb_".equals(entitylivingbaseIn.getCustomNameTag())) {
-                        return; //Don't render on top of jeb sheeps
+                        return; //Don't render on top of jeb_ sheep
                     }
                 }
 

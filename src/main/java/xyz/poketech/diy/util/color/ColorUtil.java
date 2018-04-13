@@ -32,6 +32,14 @@ public final class ColorUtil {
         return new Vector4f(r / 255F, g / 255F, b / 255F, 1);
     }
 
+    public static int[] toRGB(int rgb) {
+        int r = rgb >> 16 & 255;
+        int g = rgb >> 8 & 255;
+        int b = rgb & 255;
+
+        return new int[]{r,g,b};
+    }
+
     public static int getRGB(@Nullable Color color) {
         // Note: Constants in java.awt.Color are not @Nonnull-annotated
         return color == null ? 0 : getRGB(color.getRed(), color.getGreen(), color.getBlue());

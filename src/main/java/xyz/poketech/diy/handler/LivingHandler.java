@@ -21,11 +21,13 @@ import org.apache.commons.lang3.RandomUtils;
 import xyz.poketech.diy.ConfigHandler;
 import xyz.poketech.diy.DyeItYourself;
 import xyz.poketech.diy.ai.EntityAIEatFlower;
+import xyz.poketech.diy.network.PacketHandler;
 import xyz.poketech.diy.network.PacketRequestColor;
 import xyz.poketech.diy.network.PacketUpdateColor;
 import xyz.poketech.diy.util.color.ColorUtil;
 import xyz.poketech.diy.util.RandomUtil;
 import xyz.poketech.diy.util.WorldUtil;
+import xyz.poketech.diy.util.color.NBTColorUtil;
 
 
 @Mod.EventBusSubscriber(modid = DyeItYourself.MODID)
@@ -80,25 +82,6 @@ public class LivingHandler {
                 }
             } else {
                 data.setInteger(NEXT_DYE_KEY, RandomUtil.getNextDye());
-            }
-        }
-    }
-
-    //Just for testing stuff
-    @SubscribeEvent
-    public static void onLivingRightClick(PlayerInteractEvent.EntityInteract event) {
-        if(event.getSide() == Side.SERVER) {
-            Entity target = event.getTarget();
-            if(target instanceof EntitySheep) {
-                int r = RandomUtils.nextInt(0, 256);
-                int g = RandomUtils.nextInt(0, 256);
-                int b = RandomUtils.nextInt(0, 256);
-                target.getEntityData().setInteger("diy_color", ColorUtil.getRGB(r,g,b));
-                BlockPos pos = event.getPos();
-                DyeItYourself.NETWORK.sendToAllAround(
-                    new PacketUpdateColor(target, ColorUtil.getRGB(r,g,b)),
-                    new NetworkRegistry.TargetPoint( event.getEntityPlayer().dimension, pos.getX(), pos.getY(), pos.getZ(), 25)
-                );
             }
         }
     }

@@ -29,3 +29,8 @@ config.diy.sheep_poop_time_higher=Max time until next dye
 config.diy.sheep_poop_time_higher.tooltip=Time in tick (default = like chicken eggs)
 config.diy.sheep_poop_time_lower=Min time until next dye
 config.diy.sheep_poop_time_lower.tooltip=Time in tick (default = like chicken eggs)
+
+
+tooltip.diy.current_color=Color: R: %d G: %d B: %d
+item.diy.dye_brush.name=Dye Brush
+item.diy.dye_brush.tooltip=Right click while sneaking to change the color and right click to dye a sheep
