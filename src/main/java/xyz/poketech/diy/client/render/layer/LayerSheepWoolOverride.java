@@ -31,9 +31,6 @@ public class LayerSheepWoolOverride implements LayerRenderer<EntitySheep> {
             //Only render if a color is set
             if (entitylivingbaseIn.getEntityData().hasKey(NBTColorUtil.COLOR_KEY)) {
 
-                boolean isJeb = false;
-                boolean isDisco = false;
-
                 if(entitylivingbaseIn.hasCustomName()) {
                     if("jeb_".equals(entitylivingbaseIn.getCustomNameTag())) {
                         return; //Don't render on top of jeb_ sheep
