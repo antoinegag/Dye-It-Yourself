@@ -12,23 +12,23 @@ config.diy.sheep_eat_flowers.tooltip=If Sheep should eat flowers
 config.diy.sheep_absorb=Sheep take flower color
 config.diy.sheep_absorb.tooltip=Sheep should take the color of the flower they eat
 
-#Dye pooping
-config.diy.dye_pooping=Dye pooping
-config.diy.dye_pooping.tooltip=Dye pooping
+#Dye droping
+config.diy.dye_dropping=Dye drop
+config.diy.dye_dropping.tooltip=Dye drop
 
-config.diy.sheep_poop_dye=Sheep should poop dye
-config.diy.sheep_poop_dye.tooltip=Should sheep poop dye
+config.diy.sheep_drop_dye=Sheep should drop dye
+config.diy.sheep_drop_dye.tooltip=Should sheep drop dye
 
-config.diy.max_dye_poop.tooltip=Maximum of dye Sheep should poop at the time
-config.diy.max_dye_poop=Maximum dye pooped
+config.diy.max_dye_drop.tooltip=Maximum of dye Sheep should drop at the time
+config.diy.max_dye_drop=Maximum dye dropped
 
-config.diy.min_dye_poop.tooltip=Minimum of dye Sheep should poop at the time
-config.diy.min_dye_poop=Minimum dye pooped
+config.diy.min_dye_drop.tooltip=Minimum of dye Sheep should drop at the time
+config.diy.min_dye_drop=Minimum dye dropped
 
-config.diy.sheep_poop_time_higher=Max time until next dye
-config.diy.sheep_poop_time_higher.tooltip=Time in tick (default = like chicken eggs)
-config.diy.sheep_poop_time_lower=Min time until next dye
-config.diy.sheep_poop_time_lower.tooltip=Time in tick (default = like chicken eggs)
+config.diy.sheep_drop_time_higher=Max time until next dye
+config.diy.sheep_drop_time_higher.tooltip=Time in tick (default = like chicken eggs)
+config.diy.sheep_drop_time_lower=Min time until next dye
+config.diy.sheep_drop_time_lower.tooltip=Time in tick (default = like chicken eggs)
 
 
 tooltip.diy.current_color=Color: R: %d G: %d B: %d

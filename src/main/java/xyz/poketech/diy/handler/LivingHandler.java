@@ -1,33 +1,22 @@
 package xyz.poketech.diy.handler;
 
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.passive.EntitySheep;
 import net.minecraft.init.Items;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.World;
 import net.minecraftforge.event.entity.EntityJoinWorldEvent;
 import net.minecraftforge.event.entity.living.LivingEvent;
 import net.minecraftforge.event.entity.living.LivingSpawnEvent;
-import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
-import net.minecraftforge.fml.common.network.NetworkRegistry;
-import net.minecraftforge.fml.relauncher.Side;
-import org.apache.commons.lang3.RandomUtils;
 import xyz.poketech.diy.ConfigHandler;
 import xyz.poketech.diy.DyeItYourself;
 import xyz.poketech.diy.ai.EntityAIEatFlower;
-import xyz.poketech.diy.network.PacketHandler;
 import xyz.poketech.diy.network.PacketRequestColor;
-import xyz.poketech.diy.network.PacketUpdateColor;
-import xyz.poketech.diy.util.color.ColorUtil;
 import xyz.poketech.diy.util.RandomUtil;
 import xyz.poketech.diy.util.WorldUtil;
-import xyz.poketech.diy.util.color.NBTColorUtil;
 
 
 @Mod.EventBusSubscriber(modid = DyeItYourself.MODID)
@@ -59,7 +48,7 @@ public class LivingHandler {
     @SubscribeEvent
     public static void onLivingUpdate(LivingEvent.LivingUpdateEvent event) {
         EntityLivingBase entity = event.getEntityLiving();
-        if (!entity.world.isRemote && ConfigHandler.dyePooping.sheepPoopDye && entity instanceof EntitySheep) {
+        if (!entity.world.isRemote && ConfigHandler.dyeDrop.doDropDye && entity instanceof EntitySheep) {
 
             EntitySheep sheep = (EntitySheep) event.getEntityLiving();
             NBTTagCompound data = sheep.getEntityData();
@@ -68,7 +57,7 @@ public class LivingHandler {
                 int nextDye = data.getInteger(NEXT_DYE_KEY);
                 if (nextDye == 1) {
                     //Spawn a random amount of dye
-                    int count = RandomUtil.getDyePoopedAmountSafe();
+                    int count = RandomUtil.getDyeDropAmountSafe();
                     if(count != 0) {
                         WorldUtil.spawnStack(sheep.world, sheep.getPosition(), new ItemStack(Items.DYE, count, sheep.getFleeceColor().getDyeDamage()));
 

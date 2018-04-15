@@ -14,9 +14,9 @@ public class ConfigHandler {
     @Config.LangKey("config.diy.general")
     public static ConfigGeneral general = new ConfigGeneral();
 
-    @Config.Comment({"Dye pooping settings"})
-    @Config.LangKey("config.diy.dye_pooping")
-    public static ConfigDyePooping dyePooping = new ConfigDyePooping();
+    @Config.Comment({"Dye drop settings"})
+    @Config.LangKey("config.diy.dye_dropping")
+    public static ConfigDyeDrop dyeDrop = new ConfigDyeDrop();
 
     @SubscribeEvent
     public static void onConfigChanged(ConfigChangedEvent.OnConfigChangedEvent event) {
@@ -25,29 +25,29 @@ public class ConfigHandler {
         }
     }
 
-    public static class ConfigDyePooping {
+    public static class ConfigDyeDrop {
 
-        @Config.Comment({"Sheeps should poop dye"})
-        @Config.LangKey("config.diy.sheep_poop_dye")
-        public boolean sheepPoopDye = true;
+        @Config.Comment({"Sheeps should drop dye"})
+        @Config.LangKey("config.diy.sheep_drop_dye")
+        public boolean doDropDye = true;
 
         @Config.Comment({"Max time until next dye"})
-        @Config.LangKey("config.diy.sheep_poop_time_higher")
+        @Config.LangKey("config.diy.sheep_drop_time_higher")
         public int rngUpperBoundTime = 12000;
 
         @Config.Comment({"Min time until next dye"})
-        @Config.LangKey("config.diy.sheep_poop_time_lower")
+        @Config.LangKey("config.diy.sheep_drop_time_lower")
         public int rngLowerBoundTime = 6000;
 
-        @Config.Comment({"Maximum of dye sheeps should poop at the time"})
-        @Config.LangKey("config.diy.max_dye_poop")
+        @Config.Comment({"Maximum of dye sheeps should drop at the time"})
+        @Config.LangKey("config.diy.max_dye_drop")
         @Config.RangeInt(min = 0)
-        public int maxDyePoop = 2;
+        public int maxDyeDrop = 2;
 
-        @Config.Comment({"Minimum of dye sheeps should poop at the time"})
-        @Config.LangKey("config.diy.min_dye_poop")
+        @Config.Comment({"Minimum of dye sheeps should drop at the time"})
+        @Config.LangKey("config.diy.min_dye_drop")
         @Config.RangeInt(min = 0)
-        public int minDyePoop = 1;
+        public int minDyeDrop = 1;
     }
 
     public static class ConfigGeneral {
