@@ -1,6 +1,3 @@
-#### Description:
-
-
 #### What happens:
 
 
