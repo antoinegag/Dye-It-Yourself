@@ -21,8 +21,12 @@ public class DyeUtil {
 
         //Grab the flower as an ItemStack
         ItemStack stack = WorldUtil.getItemStackForBlockAt(world, pos);
+
+        //TODO: cache the result
         ItemStack dye = getFlowerDye(stack, world);
         int meta = dye.getMetadata();
+
+        //FIXME: this is caching the meta <-> dye color value... should cache the result of getFlowerDye insetad
         return cache.computeIfAbsent(stack.getMetadata(), k -> EnumDyeColor.byDyeDamage(meta));
     }
 
