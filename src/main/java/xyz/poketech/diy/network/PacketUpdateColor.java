@@ -60,8 +60,11 @@ public class PacketUpdateColor implements IMessage {
 
             Minecraft.getMinecraft().addScheduledTask(() -> {
                 Entity entity = world.getEntityByID(message.entityId);
-                int color = message.color;
-                entity.getEntityData().setInteger(NBTColorUtil.COLOR_KEY, color);
+
+                if(entity != null) {
+                    int color = message.color;
+                    entity.getEntityData().setInteger(NBTColorUtil.COLOR_KEY, color);
+                }
             });
 
             return null;

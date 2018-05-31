@@ -19,8 +19,8 @@ public class CommonProxy {
     public void preInit(FMLPreInitializationEvent e) {
         PacketHandler.registerMessages();
 
-        FMLInterModComms.sendMessage("morph", "nbt_modifier", "net.minecraft.entity.passive.EntitySheep>nextDye>13370");
-        FMLInterModComms.sendMessage("morph", "nbt_modifier", "net.minecraft.entity.passive.EntitySheep>diy_color>0");
+        FMLInterModComms.sendMessage("morph", "nbt_modifier", "net.minecraft.entity.passive.EntitySheep>ForgeData_DIYDyeData>ForgeData:nextDye;null");
+        FMLInterModComms.sendMessage("morph", "nbt_modifier", "net.minecraft.entity.passive.EntitySheep>diy_color>null");
     }
 
     public void init(FMLInitializationEvent e) {
