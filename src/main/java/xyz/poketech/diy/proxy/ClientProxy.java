@@ -15,10 +15,8 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import xyz.poketech.diy.DIYItems;
-import xyz.poketech.diy.DyeItYourself;
 import xyz.poketech.diy.client.render.layer.LayerSheepWoolOverride;
 import xyz.poketech.diy.network.PacketHandler;
-import xyz.poketech.diy.network.PacketUpdateColor;
 
 @SideOnly(Side.CLIENT)
 @Mod.EventBusSubscriber(Side.CLIENT)
