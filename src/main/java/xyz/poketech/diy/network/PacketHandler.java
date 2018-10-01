@@ -7,8 +7,6 @@ import xyz.poketech.diy.DyeItYourself;
 
 public class PacketHandler {
 
-    private static int id = 0;
-
 
     public static void registerMessages() {
 

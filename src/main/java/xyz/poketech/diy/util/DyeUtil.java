@@ -1,5 +1,6 @@
 package xyz.poketech.diy.util;
 
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.Container;
 import net.minecraft.inventory.InventoryCrafting;
@@ -14,20 +15,25 @@ import java.util.Map;
 
 public class DyeUtil {
 
-
-    private static Map<Integer, EnumDyeColor> cache = new HashMap<>();
+    private static Map<IBlockState, EnumDyeColor> stateColorCache = new HashMap<>();
 
     public static EnumDyeColor getDyeForFlowerAt(World world, BlockPos pos) {
 
+    	IBlockState state = world.getBlockState(pos);
+    	
+    	// If possible, return early from the cache.
+    	if (stateColorCache.containsKey(state)) {
+    		
+    		return stateColorCache.get(state);
+    	}
+    	
         //Grab the flower as an ItemStack
-        ItemStack stack = WorldUtil.getItemStackForBlockAt(world, pos);
+        ItemStack stack = WorldUtil.getItemStackForBlockAt(world, pos, state);
 
-        //TODO: cache the result
         ItemStack dye = getFlowerDye(stack, world);
-        int meta = dye.getMetadata();
-
-        //FIXME: this is caching the meta <-> dye color value... should cache the result of getFlowerDye insetad
-        return cache.computeIfAbsent(stack.getMetadata(), k -> EnumDyeColor.byDyeDamage(meta));
+        EnumDyeColor color = EnumDyeColor.byDyeDamage(dye.getMetadata());
+        stateColorCache.put(state, color);
+        return color;
     }
 
     public static ItemStack getFlowerDye(ItemStack stack, World world) {

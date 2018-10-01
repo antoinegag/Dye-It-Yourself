@@ -8,11 +8,7 @@ import net.minecraftforge.fml.common.event.FMLInterModComms;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
-import net.minecraftforge.fml.relauncher.Side;
-import xyz.poketech.diy.DyeItYourself;
 import xyz.poketech.diy.network.PacketHandler;
-import xyz.poketech.diy.network.PacketRequestColor;
-import xyz.poketech.diy.network.PacketUpdateColor;
 
 public class CommonProxy {
 

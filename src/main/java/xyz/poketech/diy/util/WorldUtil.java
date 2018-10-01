@@ -39,8 +39,7 @@ public class WorldUtil {
      * @param pos   the position of the flower
      * @return the ItemStack of the flower
      */
-    public static ItemStack getItemStackForBlockAt(World world, BlockPos pos) {
-        IBlockState state = world.getBlockState(pos);
+    public static ItemStack getItemStackForBlockAt(World world, BlockPos pos, IBlockState state) {
         return world.getBlockState(pos).getBlock().getPickBlock(state, null, world, pos, null);
     }
 

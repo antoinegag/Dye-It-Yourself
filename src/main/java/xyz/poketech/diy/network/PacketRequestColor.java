@@ -6,7 +6,6 @@ import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessageHandler;
 import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
-import xyz.poketech.diy.DyeItYourself;
 import xyz.poketech.diy.util.color.NBTColorUtil;
 
 public class PacketRequestColor implements IMessage {
