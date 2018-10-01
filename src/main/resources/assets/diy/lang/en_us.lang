@@ -19,14 +19,15 @@ config.diy.dye_dropping.tooltip=Dye drop
 config.diy.sheep_drop_dye=Sheep should drop dye
 config.diy.sheep_drop_dye.tooltip=Should sheep drop dye
 
-config.diy.max_dye_drop.tooltip=Maximum of dye Sheep should drop at the time
 config.diy.max_dye_drop=Maximum dye dropped
+config.diy.max_dye_drop.tooltip=Maximum of dye Sheep should drop at the time
 
-config.diy.min_dye_drop.tooltip=Minimum of dye Sheep should drop at the time
 config.diy.min_dye_drop=Minimum dye dropped
+config.diy.min_dye_drop.tooltip=Minimum of dye Sheep should drop at the time
 
 config.diy.sheep_drop_time_higher=Max time until next dye
 config.diy.sheep_drop_time_higher.tooltip=Time in tick (default = like chicken eggs)
+
 config.diy.sheep_drop_time_lower=Min time until next dye
 config.diy.sheep_drop_time_lower.tooltip=Time in tick (default = like chicken eggs)
 
