@@ -33,4 +33,4 @@ config.diy.sheep_drop_time_lower.tooltip=Tiempo en ticks (default = huevos de ga
 
 tooltip.diy.current_color=Color: R: %d G: %d B: %d
 item.diy.dye_brush.name=Brocha de tinte
-item.diy.dye_brush.tooltip=Click derecho mientras se esta agachado para cambiar el color y click isquierdo sobre una obeja para cambiar su color
+item.diy.dye_brush.tooltip=Click derecho mientras se esta agachado para cambiar el color y click izquierdo sobre una obeja para cambiar su color
