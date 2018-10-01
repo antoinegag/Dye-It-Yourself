@@ -13,7 +13,7 @@ import xyz.poketech.diy.proxy.CommonProxy;
 
 @Mod.EventBusSubscriber
 @Mod(modid = DyeItYourself.MODID, name = DyeItYourself.NAME, version = DyeItYourself.VERSION, acceptedMinecraftVersions = DyeItYourself.VERSION_RANGE)
-public class DyeItYourself {
+public final class DyeItYourself {
     public static final String MODID = "diy";
 
     public static final String NAME = "Dye it yourself";
@@ -23,13 +23,19 @@ public class DyeItYourself {
 
     public static final SimpleNetworkWrapper NETWORK = new SimpleNetworkWrapper(MODID);
 
-    @Mod.Instance
-    public static DyeItYourself instance;
+    private static final DyeItYourself INSTANCE = new DyeItYourself();
 
     public static final Logger LOGGER = LogManager.getLogger(MODID);
 
     @SidedProxy(clientSide = "xyz.poketech.diy.proxy.ClientProxy", serverSide = "xyz.poketech.diy.proxy.CommonProxy")
-    public static CommonProxy proxy;
+    private static CommonProxy proxy;
+
+    private DyeItYourself() {}
+
+    @Mod.InstanceFactory
+    public static DyeItYourself getInstance() {
+        return INSTANCE;
+    }
 
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent e){
