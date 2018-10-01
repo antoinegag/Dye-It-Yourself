@@ -43,6 +43,7 @@ public class EntityAIEatFlower extends EntityAIBase {
     /**
      * Execute a one shot task or start executing a continuous task
      */
+    @Override
     public void startExecuting() {
         this.eatingFlowerTimer = 40;
         this.entityWorld.setEntityState(this.flowerEaterEntity, (byte) 10);
@@ -52,6 +53,7 @@ public class EntityAIEatFlower extends EntityAIBase {
     /**
      * Reset the task's internal state. Called when this task is interrupted by another one
      */
+    @Override
     public void resetTask() {
         this.eatingFlowerTimer = 0;
     }
@@ -59,6 +61,7 @@ public class EntityAIEatFlower extends EntityAIBase {
     /**
      * Returns whether an in-progress EntityAIBase should continue executing
      */
+    @Override
     public boolean shouldContinueExecuting() {
         return this.eatingFlowerTimer > 0;
     }
@@ -73,6 +76,7 @@ public class EntityAIEatFlower extends EntityAIBase {
     /**
      * Keep ticking a continuous task that has already been started
      */
+    @Override
     public void updateTask() {
         this.eatingFlowerTimer = Math.max(0, this.eatingFlowerTimer - 1);
 
