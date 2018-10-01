@@ -1,0 +1,37 @@
+#========================================================================
+#                               Config
+#========================================================================
+
+#General
+config.diy.general=Generul
+config.diy.general.tooltip=Generul confg
+
+config.diy.sheep_eat_flowers=Shep eat flowr
+config.diy.sheep_eat_flowers.tooltip=If Shep shuld eat flowr
+
+config.diy.sheep_absorb=Shep take flowr colurz
+config.diy.sheep_absorb.tooltip=Shep shuld take da colurz of da flowr dey eat
+
+#Dye droping
+config.diy.dye_dropping=Powder drop
+config.diy.dye_dropping.tooltip=Powder drop
+
+config.diy.sheep_drop_dye=Shep shuld drop powder
+config.diy.sheep_drop_dye.tooltip=Shuld shep drop powder
+
+config.diy.max_dye_drop=Maximum powder droppd
+config.diy.max_dye_drop.tooltip=Maximum of powder shep shuld drop at da tiem
+
+config.diy.min_dye_drop=Minimum sku powder droppd
+config.diy.min_dye_drop.tooltip=Minimum of powder shep shuld drop at da tiem
+
+config.diy.sheep_drop_time_higher=Max tiem until next powder
+config.diy.sheep_drop_time_higher.tooltip=Tiem in tick (default = liek bawk bawk eggs)
+
+config.diy.sheep_drop_time_lower=Min tiem until next powder
+config.diy.sheep_drop_time_lower.tooltip=Tiem in tick (default = liek bawk bawk eggs)
+
+
+tooltip.diy.current_color=Colurz: R: %d G: %d B: %d
+item.diy.dye_brush.name=Powder Fuzzy Stik
+item.diy.dye_brush.tooltip=Righty clicz while tiptoe tu change da colurz and righty clicz tu culurd a shep
