@@ -1,0 +1,36 @@
+#========================================================================
+#                               Config
+#========================================================================
+
+#General
+config.diy.general=General
+config.diy.general.tooltip=Configuración General
+
+config.diy.sheep_eat_flowers=Ovejas consumen flores
+config.diy.sheep_eat_flowers.tooltip=Ovejas pueden consumir flores
+
+config.diy.sheep_absorb=Ovejas toman color de flores
+config.diy.sheep_absorb.tooltip=Ovejas pueden tomar el color de la flor que consumen
+
+#Dye droping
+config.diy.dye_dropping=Tintes
+config.diy.dye_dropping.tooltip=Configuración de tintes
+
+config.diy.sheep_drop_dye=Ovejas sueltan tinte
+config.diy.sheep_drop_dye.tooltip=Ovejas pueden soltar tinte
+
+config.diy.max_dye_drop.tooltip=Cantidad máxima de tinte que puede soltar una oveja de una vez
+config.diy.max_dye_drop=Cantidad máxima de tinte soltado
+
+config.diy.min_dye_drop.tooltip=Cantidad mínima de tinte que puede soltar una oveja de una vez
+config.diy.min_dye_drop=Cantidad mínima de tinte soltado
+
+config.diy.sheep_drop_time_higher=Tiempo máximo hasta el siguiente tinte
+config.diy.sheep_drop_time_higher.tooltip=Tiempo en ticks (default = huevos de gallina)
+config.diy.sheep_drop_time_lower=Tiempo mínimo hasta el siguiente tinte
+config.diy.sheep_drop_time_lower.tooltip=Tiempo en ticks (default = huevos de gallina)
+
+
+tooltip.diy.current_color=Color: R: %d G: %d B: %d
+item.diy.dye_brush.name=Brocha de tinte
+item.diy.dye_brush.tooltip=Click derecho mientras se esta agachado para cambiar el color y click izquierdo sobre una oveja para cambiar su color
