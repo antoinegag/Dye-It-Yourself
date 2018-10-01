@@ -9,7 +9,7 @@ import java.awt.*;
 public class NBTColorUtil {
 
     public static final String COLOR_KEY = "diy_color";
-    private static int WHITE = ColorUtil.getRGB(255, 255, 255);
+    private static final int WHITE = ColorUtil.getRGB(255, 255, 255);
 
     public static void setEntityColor(Entity entity, int color) {
         entity.getEntityData().setInteger(COLOR_KEY, color);

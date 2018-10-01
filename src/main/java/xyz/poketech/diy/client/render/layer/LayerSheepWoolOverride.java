@@ -8,8 +8,6 @@ import net.minecraft.util.ResourceLocation;
 import xyz.poketech.diy.util.color.NBTColorUtil;
 import xyz.poketech.diy.util.color.ColorUtil;
 
-import java.util.Random;
-
 /**
  * Layer to override the sheep wool
  * Based on {@link net.minecraft.client.renderer.entity.layers.LayerSheepWool}
