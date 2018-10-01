@@ -1,0 +1,37 @@
+#========================================================================
+#                               Config
+#========================================================================
+
+#General
+config.diy.general=Generell
+config.diy.general.tooltip=Generelle Konfiguration
+
+config.diy.sheep_eat_flowers=Schafe fressen Blumen
+config.diy.sheep_eat_flowers.tooltip=Ob Schafe Blumen fressen sollen
+
+config.diy.sheep_absorb=Schafe übernehmen die Blumenfarbe
+config.diy.sheep_absorb.tooltip=Ob Schafe die Farbe der Blumen übernehmen sollen, die sie fressen
+
+#Dye droping
+config.diy.dye_dropping=Farbstoff-Drop
+config.diy.dye_dropping.tooltip=Farbstoff-Drop
+
+config.diy.sheep_drop_dye=Schafe droppen Farbstoff
+config.diy.sheep_drop_dye.tooltip=Ob Schafe Farbstoff droppen sollen
+
+config.diy.max_dye_drop=Maximale Anzahl von Farbstoff-Drops
+config.diy.max_dye_drop.tooltip=Maximale Anzahl an Farbstoff-Items, die gleichzeitig gedroppt werden sollen
+
+config.diy.min_dye_drop=Minimale Anzahl von Farbstoff-Drops
+config.diy.min_dye_drop.tooltip=Minimale Anzahl an Farbstoff-Items, die gleichzeitig gedroppt werden sollen
+
+config.diy.sheep_drop_time_higher=Maximale Zeit bis zum nächsten Farbstoff-Drop
+config.diy.sheep_drop_time_higher.tooltip=Zeit in Ticks (Standard = wie Hühnereier)
+
+config.diy.sheep_drop_time_lower=Minimale Zeit bis zum nächsten Farbstoff-Drop
+config.diy.sheep_drop_time_lower.tooltip=Zeit in Ticks (Standard = wie Hühnereier)
+
+
+tooltip.diy.current_color=Farbe: Rot: %d Grün: %d Blau: %d
+item.diy.dye_brush.name=Farbpinsel
+item.diy.dye_brush.tooltip=Schleichen + Rechtsklick: Farbe ändern, Rechtsklick auf ein Schaf: Schaf färben
