@@ -1,0 +1,36 @@
+#========================================================================
+#                               Config
+#========================================================================
+
+#General
+config.diy.general=一般
+config.diy.general.tooltip=一般の設定
+
+config.diy.sheep_eat_flowers=羊が花を食う
+config.diy.sheep_eat_flowers.tooltip=羊は花を食べれる
+
+config.diy.sheep_absorb=羊は花の色を吸い込む
+config.diy.sheep_absorb.tooltip=羊は食べた花の色に変わる
+
+#Dye droping
+config.diy.dye_dropping=染料ドロップ
+config.diy.dye_dropping.tooltip=染料のドロップに関係する設定
+
+config.diy.sheep_drop_dye=羊の染料ドロップ
+config.diy.sheep_drop_dye.tooltip=羊は染料をドロップできる
+
+config.diy.max_dye_drop.tooltip=羊から最大限のドロップ
+config.diy.max_dye_drop=染料ドロップの最大限
+
+config.diy.min_dye_drop.tooltip=羊から最小限のドロップ
+config.diy.min_dye_drop=染料ドロップの最小限
+
+config.diy.sheep_drop_time_higher=次の染料ドロップまで最大期限
+config.diy.sheep_drop_time_higher.tooltip=チック数（デフォルトとは鶏の産卵の同じ）
+config.diy.sheep_drop_time_lower=次の染料ドロップまで最小期限
+config.diy.sheep_drop_time_lower.tooltip=チック数（デフォルトとは鶏の産卵の同じ）
+
+
+tooltip.diy.current_color=色： 赤：%d 緑：%d 青：%d
+item.diy.dye_brush.name=染料の筆
+item.diy.dye_brush.tooltip=スニーク中で左クリックすると色を切り替える。右クリックすると羊を染める。
